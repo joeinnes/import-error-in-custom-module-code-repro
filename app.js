@@ -1,7 +1,5 @@
 require('dotenv').config();
 const path = require("path");
-
-console.log(process.env.MONGO_URI)
 require("apostrophe")({
   shortName: "import-error-in-custom-module-code-repro",
 
