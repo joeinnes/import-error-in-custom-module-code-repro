@@ -64,5 +64,6 @@ require("apostrophe")({
     // A home for our own project-specific javascript and SASS assets
     asset: {},
     "default-page": {},
+    'pesky-page': {}
   },
 });

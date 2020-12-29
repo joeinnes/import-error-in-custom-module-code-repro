@@ -11,6 +11,10 @@ module.exports = {
       {
         name: '@apostrophecms/home-page',
         label: 'Home'
+      },
+      {
+        name: 'pesky-page',
+        label: 'Create a page with this type to see the error'
       }
     ]
   }

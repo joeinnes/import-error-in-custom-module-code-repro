@@ -1,7 +1,7 @@
 module.exports = {
   extend: '@apostrophecms/page-type',
   options: {
-    label: 'Default Page'
+    label: 'Pesky Page'
   },
   fields: {
     add: {
