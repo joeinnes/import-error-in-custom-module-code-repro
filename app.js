@@ -1,6 +1,7 @@
 require('dotenv').config();
 const path = require("path");
 
+console.log(process.env.MONGO_URI)
 require("apostrophe")({
   shortName: "import-error-in-custom-module-code-repro",
 
@@ -9,7 +10,7 @@ require("apostrophe")({
       options: {
         uri:
           process.env.MONGO_URI ||
-          "mongodb://127.0.0.1/import-error-in-custom-module-code-repro",
+          "mongodb://127.0.0.1:27017/import-error-in-custom-module-code-repro",
       },
     },
     // Apostrophe module configuration
