@@ -1,35 +1,48 @@
-const path = require('path');
+const path = require("path");
+const glob = require("glob");
+
+const entry = glob.sync("modules/*/src/index.js").reduce((acc, curr) => {
+  const chunkName = curr.replace("/src/", "/ui/public/");
+  return Object.assign(
+    acc,
+    {
+      [chunkName]: path.resolve(__dirname, curr),
+    })
+  },
+  {});
+
+entry["modules/asset/ui/public/site.js"] = "./src/index.js";
 
 module.exports = {
-  entry: './src/index.js',
+  entry,
   output: {
-    path: path.resolve(__dirname, 'modules/asset/ui/public'),
-    filename: 'site.js'
+    path: __dirname,
+    filename: '[name]'
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        exclude: /node_modules/,
+        exclude: [/node_modules/, /modules\/.*\/ui\/public\/.*js$/gm],
         use: [
           {
-            loader: 'babel-loader',
+            loader: "babel-loader",
             options: {
-              presets: ['@babel/preset-env']
-            }
-          }
-        ]
+              presets: ["@babel/preset-env"],
+            },
+          },
+        ],
       },
       {
         test: /\.scss$/,
         use: [
-          'style-loader',
-          'css-loader',
+          "style-loader",
+          "css-loader",
           {
-            loader: 'sass-loader'
-          }
-        ]
-      }
-    ]
-  }
+            loader: "sass-loader",
+          },
+        ],
+      },
+    ],
+  },
 };

@@ -42,6 +42,7 @@
       "public/apos-minified/*.js",
       "public/css/master-*.less",
       "modules/asset/ui/public/site.js",
+      "modules/**/ui/public/*.js",
       "data"
     ],
     "ext": "json, js, html, scss, vue"
@@ -54,6 +55,7 @@
     "eslint": "^7.8.0",
     "eslint-config-apostrophe": "^3.4.0",
     "eslint-plugin-node": "^11.1.0",
+    "glob": "^5.0.15",
     "node-dev": "^5.2.0",
     "nodemon": "^2.0.4",
     "sass": "^1.26.11",
