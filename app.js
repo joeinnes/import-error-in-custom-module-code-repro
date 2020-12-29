@@ -1,10 +1,17 @@
-const path = require('path');
+require('dotenv').config();
+const path = require("path");
 
-require('apostrophe')({
-  shortName: 'a3-boilerplate',
+require("apostrophe")({
+  shortName: "import-error-in-custom-module-code-repro",
 
   modules: {
-
+    "@apostrophecms/db": {
+      options: {
+        uri:
+          process.env.MONGO_URI ||
+          "mongodb://127.0.0.1/import-error-in-custom-module-code-repro",
+      },
+    },
     // Apostrophe module configuration
 
     // Note: most configuration occurs in the respective
@@ -16,48 +23,47 @@ require('apostrophe')({
     // If a template is not found somewhere else, serve it from the top-level
     // `views/` folder of the project
 
-    '@apostrophecms/template': {
+    "@apostrophecms/template": {
       options: {
-        viewsFolderFallback: path.join(__dirname, 'views')
-      }
+        viewsFolderFallback: path.join(__dirname, "views"),
+      },
     },
 
     // Custom CSS classes for standard apostrophe widgets
-    '@apostrophecms/rich-text-widget': {
+    "@apostrophecms/rich-text-widget": {
       options: {
-        className: 'bp-rich-text'
-      }
+        className: "bp-rich-text",
+      },
     },
-    '@apostrophecms/image-widget': {
+    "@apostrophecms/image-widget": {
       options: {
-        className: 'bp-image-widget'
-      }
+        className: "bp-image-widget",
+      },
     },
-    '@apostrophecms/video-widget': {
+    "@apostrophecms/video-widget": {
       options: {
-        className: 'bp-video-widget'
-      }
+        className: "bp-video-widget",
+      },
     },
     // Manages apostrophe's overall asset pipeline
-    '@apostrophecms/asset': {
+    "@apostrophecms/asset": {
       // When not in production, refresh the page on restart
       options: {
-        refreshOnRestart: true
-      }
+        refreshOnRestart: true,
+      },
     },
 
-    '@apostrophecms/express': {
+    "@apostrophecms/express": {
       options: {
         session: {
           // If this still says `undefined`, set a real secret!
-          secret: undefined
-        }
-      }
+          secret: undefined,
+        },
+      },
     },
 
     // A home for our own project-specific javascript and SASS assets
     asset: {},
-    'default-page': {}
-
-  }
+    "default-page": {},
+  },
 });

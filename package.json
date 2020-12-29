@@ -1,5 +1,5 @@
 {
-  "name": "a3-boilerplate",
+  "name": "import-error-in-custom-module-code-repro",
   "version": "3.0.0-alpha.1",
   "description": "Apostrophe 3 Boilerplate Site",
   "main": "app.js",
@@ -17,6 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "apostrophe": "alpha",
+    "dotenv": "^6.2.0",
     "normalize.css": "^8.0.1",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12"
